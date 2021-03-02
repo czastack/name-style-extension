@@ -2,6 +2,7 @@
 	"name": "name-style",
 	"displayName": "name-style",
 	"description": "change name style",
+	"publisher": "chenstack",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.36.0"
@@ -10,7 +11,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.nameStyle"
+		"onCommand:extension.nameStyle",
+		"onCommand:extension.nameStyleBig"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,6 +20,10 @@
 			{
 				"command": "extension.nameStyle",
 				"title": "Name Style"
+			},
+			{
+				"command": "extension.nameStyleBig",
+				"title": "Name Style Big"
 			}
 		]
 	},
