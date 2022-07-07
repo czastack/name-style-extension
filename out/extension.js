@@ -1,24 +1,24 @@
-import * as vscode from 'vscode';
-
-export function activate(context: vscode.ExtensionContext) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const vscode = require("vscode");
+function activate(context) {
     context.subscriptions.push(vscode.commands.registerCommand('extension.nameStyle', nameStyle));
     context.subscriptions.push(vscode.commands.registerCommand('extension.nameStyleBig', nameStyle.bind(null, true)));
 }
-
-
-function nameStyle(big: Boolean) {
+exports.activate = activate;
+function nameStyle(big) {
     // Get the active text editor
     const editor = vscode.window.activeTextEditor;
 
     if (editor) {
         const document = editor.document;
-        const tasks: { selection: vscode.Selection; word: string; }[] = [];
+        const tasks = [];
         for (const selection of editor.selections) {
             // Get the word within the selection
             let word = document.getText(selection);
             let newWord;
             const ishump = word.match(/[A-Z]/);
-
+            
             if (ishump) {
                 newWord = word.replace(/(?<=[a-z])([A-Z])/g, m => '_' + m.toLowerCase()).toLowerCase();
             } else {
@@ -38,3 +38,4 @@ function nameStyle(big: Boolean) {
         }
     }
 }
+//# sourceMappingURL=extension.js.map
